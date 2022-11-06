@@ -1,7 +1,8 @@
 import fs from 'fs'
 
 const dataLocation = './output/'
-if(!fs.statSync(dataLocation)) fs.mkdirSync(dataLocation)
+try {fs.statSync(dataLocation)}
+catch (e) {fs.mkdirSync(dataLocation)}
 
 export const sessionCacheLocation = dataLocation + 'session.txt'
 export const jsonSaveLocation = dataLocation + 'data.json'
